@@ -20,6 +20,7 @@ fetch("/create-payment-intent", {
     return result.json();
   })
   .then(function(data) {
+    console.log(data);
     return setupElements(data);
   })
   .then(function({ stripe, card, clientSecret }) {
@@ -115,9 +116,9 @@ var showError = function(errorMsgText) {
   changeLoadingState(false);
   var errorMsg = document.querySelector(".sr-field-error");
   errorMsg.textContent = errorMsgText;
-  setTimeout(function() {
-    errorMsg.textContent = "";
-  }, 4000);
+  // setTimeout(function() {
+  //   errorMsg.textContent = "";
+  // }, 4000);
 };
 
 // Show a spinner on payment submission
